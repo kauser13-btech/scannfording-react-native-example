@@ -10,7 +10,6 @@ const draftsSlice = createSlice({
       state.data = [...state.data, action.payload];
     },
     uploadDraftDataStart: (state, action) => {
-      // console.log('Startted ', action.payload, state.data);
       state.data = state.data.map(drf => {
         return drf.id === action.payload.id
           ? {

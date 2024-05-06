@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistReducer, persistStore} from 'redux-persist';
 import rootReducer from '../app/reducers';
 import {processDrafts} from '../Utils/queue';
+import { autoSyncNetInfo } from '../Utils/connection_status';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
@@ -26,6 +27,7 @@ export const store = configureStore({
 
 setInterval(async () => {
   await processDrafts();
+  // await autoSyncNetInfo();
 }, 5000);
 
 export const rehydrateStore = persistStore(store);

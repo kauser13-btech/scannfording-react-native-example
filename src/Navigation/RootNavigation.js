@@ -18,11 +18,13 @@ import {
   selectCurrentUser,
 } from '../Screens/Login/authSlice';
 import {BottomStack} from './TabNavigator';
+import {selectNetInfo} from '../Screens/Feed/api/netInfoSlice';
 const RootNavigation = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const [loading, setLoading] = useState(false);
-  // const user = useSelector(selectCurrentUser);
+  // const netInfo = useSelector(selectNetInfo);
   const token = useSelector(selectCurrentToken);
+  // console.log('NNN', netInfo);
   if (loading) {
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
